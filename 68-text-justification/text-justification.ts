@@ -9,7 +9,6 @@ function fullJustify(words: string[], maxWidth: number): string[] {
     let currArrWidth: number = 0;
 
     words.forEach( w => {
-        console.log(w);
         // A situation that a line is formed.
         if ((currArrWidth + currArr.length + w.length) <= width) {
             // Push new word to currArr
@@ -21,21 +20,12 @@ function fullJustify(words: string[], maxWidth: number): string[] {
             let remainingSpace = width - currArrWidth;
             let currLength = currArr.length;
             for (let i =0; i < currArr.length; i++  ){
-
-                // Add sentence
-                               const spaceNumber: number = currLength !== 1 ?  Math.ceil(remainingSpace/(currLength-1)) : 0;
-                                if ( currLength !== 1 ) {
-                // Add sentence
- 
-                console.log(currArr[i], spaceNumber, remainingSpace, currLength, i )
-                sentence = sentence + currArr[i] + (new Array(spaceNumber).fill(" ")).join("");
- 
+                const spaceNumber: number = currLength !== 1 ?  Math.ceil(remainingSpace/(currLength-1)) : 0;
+                if ( currLength !== 1 ) {
+                    sentence = sentence + currArr[i] + (new Array(spaceNumber).fill(" ")).join("");
                 } else {
                     sentence = sentence + currArr[i] +  (new Array(width - sentence.length - currArr[i].length).fill(" ")).join("");
                 }
-
-
-                
                 // Update variable
                 remainingSpace -= spaceNumber;
                 currLength --;
@@ -44,7 +34,6 @@ function fullJustify(words: string[], maxWidth: number): string[] {
                 if ( currLength == 0 ) {
                     result.push(sentence);
                 }
-
             } 
                 currArr = [w];
                 currArrWidth = w.length;
