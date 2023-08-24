@@ -7,6 +7,7 @@ function maxArea(height: number[]): number {
     for ( let i = 0; i < height.length; i ++) {
         const h1 = height[i];
         if (h1 > lastH1) {
+            lastH1 = h1;
             // Get the longest width
             for ( let j = height.length-1; j > 0; j--) {
                 let h2 = height[j];
