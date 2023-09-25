@@ -12,7 +12,6 @@ function findTheDifference(s: string, t: string): string {
 
     let keys = Object.keys(tObj);
     for ( let i =0; i< keys.length; i++) {
-        console.log(sObj[keys[i]])
         if (!sObj[keys[i]] || tObj[keys[i]] !== sObj[keys[i]]) {
             return keys[i]
         }
